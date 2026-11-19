@@ -16,6 +16,13 @@ public class OpToken extends Token {
         return op;
     }
 
+    public int getPrecedence() {
+        return switch (op) {
+            case PLUS, MINUS -> 1;
+            case MULT, DIV -> 2;
+        };
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof OpToken opToken)) return false;
