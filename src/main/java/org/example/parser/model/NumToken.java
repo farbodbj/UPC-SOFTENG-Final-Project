@@ -9,4 +9,10 @@ public class NumToken extends Token {
     public int getNumber() {
         return this.number;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof NumToken)) return false;
+        else return ((NumToken) obj).number == this.number;
+    }
 }

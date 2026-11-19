@@ -7,12 +7,18 @@ public class OpToken extends Token {
             case "+": this.op = Operator.PLUS; break;
             case "-": this.op = Operator.MINUS; break;
             case "*": this.op = Operator.MULT; break;
-            case "/": this.op = Operator.DIV;
+            case "/": this.op = Operator.DIV; break;
             default: throw new IllegalArgumentException("Invalid operator entered");
         }
     }
 
     public Operator getOp() {
         return op;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof OpToken opToken)) return false;
+        return op == opToken.op;
     }
 }
